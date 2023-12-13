@@ -28,7 +28,7 @@ public class Quiz {
     private String quizDescription;
 
     @Column(name="questions")
-    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private Set<Question> questions;
 
 
