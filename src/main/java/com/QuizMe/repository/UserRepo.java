@@ -14,16 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserRepo extends JpaRepository<User, Long> {
 	
     @Query("SELECT c FROM User c WHERE c.id =:id")
-    User getUser(@Param("id") long id);
+    User getUser(@Param("id") Long id);
     
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Transactional
     @Query("DELETE FROM User c WHERE c.id = :id")
-	int deleteUser(@Param("id") long id);
+	int deleteUser(@Param("id") Long id);
     
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Transactional
     @Query(value="UPDATE User c SET c.username = :username WHERE c.id = :id", nativeQuery = true)
-    int updateUser(@Param("id") long id, @Param("username") String username);
+    int updateUser(@Param("id") Long id, @Param("username") String username);
 }
 

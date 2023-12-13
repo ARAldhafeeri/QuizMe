@@ -14,18 +14,18 @@ import org.springframework.transaction.annotation.Transactional;
 public interface QuestionRepo extends JpaRepository<Question, Long> {
 	
     @Query("SELECT c FROM Question c WHERE c.id =:id")
-    Question getQuestion(@Param("id") long id);
+    Question getQuestion(@Param("id") Long id);
     
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Transactional
     @Query("DELETE FROM Question c WHERE c.id = :id")
-	int deleteQuestion(@Param("id") long id);
+	int deleteQuestion(@Param("id") Long id);
     
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Transactional
     @Query(value="UPDATE Question c SET c.question = :question, c.correctAnswer = :correctAnswer, c.wrongAnswer1 = :wrongAnswer1, c.wrongAnswer2 = :wrongAnswer2, c.wrongAnswer3 = :wrongAnswer3 WHERE c.id = :id")
     int updateQuestion(
-        @Param("id") long id, 
+        @Param("id") Long id, 
         @Param("question") String question, 
         @Param("correctAnswer") String correctAnswer, 
         @Param("wrongAnswer1") String wrongAnswer1, 

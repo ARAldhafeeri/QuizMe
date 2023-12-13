@@ -1,6 +1,7 @@
 package com.QuizMe.repository;
 
 
+import com.QuizMe.model.Question;
 import com.QuizMe.model.Quiz;
 
 import java.util.Set;
@@ -16,21 +17,21 @@ import org.springframework.transaction.annotation.Transactional;
 public interface QuizRepo extends JpaRepository<Quiz, Long> {
 	
     @Query("SELECT c FROM Quiz c WHERE c.id =:id")
-    Quiz getQuiz(@Param("id") long id);
+    Quiz getQuiz(@Param("id") Long id);
     
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Transactional
     @Query("DELETE FROM Quiz c WHERE c.id = :id")
-	void deleteQuiz(@Param("id") long id);
+	void deleteQuiz(@Param("id") Long id);
     
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Transactional
     @Query(value="UPDATE Quiz c SET c.quizName = :quizName, c.quizDescription = :quizDescription, c.questions = :questions WHERE c.id = :id")
     void updateQuiz(
-        @Param("id") long id,
+        @Param("id") Long id,
         @Param("quizName") String quizName,
         @Param("quizDescription") String quizDescription,
-        @Param("questions") Set<Quiz> questions
+        @Param("questions") Set<Question> questions
     );
 
 }
