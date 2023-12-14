@@ -31,11 +31,12 @@ public class QuestionServiceImpl implements QuestionService {
     public void updateQuestion(Question question) {
         questionRepo.updateQuestion(
             question.getId(), 
-            question.getQuestion(), 
+            question.getName(), 
             question.getCorrectAnswer(), 
             question.getWrongAnswer1(), 
             question.getWrongAnswer2(), 
-            question.getWrongAnswer3()
+            question.getWrongAnswer3(),
+            question.getQuizId()
             );
     }
 
@@ -44,4 +45,8 @@ public class QuestionServiceImpl implements QuestionService {
         return questionRepo.findAll();
     }
 
+    @Override
+    public List<Question> getQuestionsByQuizId(Long quizId) {
+        return questionRepo.getQuestionsByQuizId(quizId);
+    }
 }

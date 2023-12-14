@@ -8,8 +8,8 @@ public class Question {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "question")
-    private String question;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "correct_answer")
     private String correctAnswer;
@@ -23,11 +23,14 @@ public class Question {
     @Column(name = "wrong_answer_3")
     private String wrongAnswer3;
 
+    @Column(name = "quiz_id")
+    private Long quizId;
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getQuestion() { return question; }
-    public void setQuestion(String question) { this.question = question; }
+    public String getName() { return name; }
+    public void setName(String question) { this.name = question; }
 
     public String getCorrectAnswer() { return correctAnswer; }
     public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
@@ -41,15 +44,19 @@ public class Question {
     public String getWrongAnswer3() { return wrongAnswer3; }
     public void setWrongAnswer3(String wrongAnswer3) { this.wrongAnswer3 = wrongAnswer3; }
 
+    public Long getQuizId() { return quizId; }
+    public void setQuizId(Long quizId) { this.quizId = quizId; }
+   
     @Override
     public String toString() {
         return "Question{" +
                 "id=" + id +
-                ", question='" + question + '\'' +
+                ", question='" + name + '\'' +
                 ", correctAnswer='" + correctAnswer + '\'' +
                 ", wrongAnswer1='" + wrongAnswer1 + '\'' +
                 ", wrongAnswer2='" + wrongAnswer2 + '\'' +
                 ", wrongAnswer3='" + wrongAnswer3 + '\'' +
                 '}';
     }
+
 }

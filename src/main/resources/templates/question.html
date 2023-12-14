@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <form th:action="@{/question/create}" method="post">
+        <label for="name">Question description:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="correctAnswer">Correct answer:</label>
+        <input type="text" id="correctAnswer" name="correctAnswer" required>
+        <br>
+        <label for="wrongAnswer1">Wrong answer 1:</label>
+        <input type="text" id="wrongAnswer1" name="wrongAnswer1" required>
+        <br>
+        <label for="wrongAnswer2">Wrong answer 2:</label>
+        <input type="text" id="wrongAnswer2" name="wrongAnswer2" required>
+        <br>
+        <label for="wrongAnswer3">Wrong answer 3:</label>
+        <input type="text" id="wrongAnswer3" name="wrongAnswer3" required>
+        <br>
+        <button type="submit">Add question</button>
+        <button onclick="window.location.href='/quiz/review'">Review quiz</button>
+
+    </form>
+
+</body>
+</html>

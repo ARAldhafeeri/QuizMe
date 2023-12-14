@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class = "header">
+        <h1 th:text="${quiz.quizName}"></h1>
+        <h2 th:text="${quiz.quizDescription}"></h2>
+    </div>
+    <div class="card-container">
+        <!-- Iterate over the list of products -->
+        <div th:each="q : ${questions}">
+            <div class="card">
+                Question Name: <span th:text="${q.name}"></span>
+                <br/>
+                Question correct answer: <span th:text="${q.correctAnswer}"></span>
+                <br/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

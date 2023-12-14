@@ -1,5 +1,6 @@
 package com.QuizMe.service;
 
+import com.QuizMe.model.Question;
 import com.QuizMe.model.Quiz;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface QuizService {
     public Quiz getQuiz(Long id);
     public List<Quiz> getQuizs();
     public void updateQuiz(Quiz quiz);
+    public String generateQuiz(List<Question> questions);
 }

@@ -26,12 +26,11 @@ public interface QuizRepo extends JpaRepository<Quiz, Long> {
     
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Transactional
-    @Query(value="UPDATE Quiz c SET c.quizName = :quizName, c.quizDescription = :quizDescription, c.questions = :questions WHERE c.id = :id")
+    @Query(value="UPDATE Quiz c SET c.quizName = :quizName, c.quizDescription = :quizDescription WHERE c.id = :id")
     void updateQuiz(
         @Param("id") Long id,
         @Param("quizName") String quizName,
-        @Param("quizDescription") String quizDescription,
-        @Param("questions") Set<Question> questions
+        @Param("quizDescription") String quizDescription
     );
 
 }

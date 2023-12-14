@@ -27,10 +27,6 @@ public class Quiz {
     @Column(name="quiz_description")
     private String quizDescription;
 
-    @Column(name="questions")
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    private Set<Question> questions;
-
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -40,9 +36,5 @@ public class Quiz {
 
     public String getQuizDescription() { return quizDescription; }
     public void setQuizDescription(String quizDescription) { this.quizDescription = quizDescription; }
-
-    public Set<Question> getQuestions() { return questions; }
-    public void setQuestions(Set<Question> questions) { this.questions = questions; }
-    
 
 }

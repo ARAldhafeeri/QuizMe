@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <h1>Take a quiz</h1>
+    <h2 th:text="${quiz.quizName}"></h2>
+    <h3 th:text="${quiz.quizDescription}"></h3>
+    <div class="questions" th:utext="${form}"></div>
+</body>
+</html>
